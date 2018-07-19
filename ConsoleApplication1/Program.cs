@@ -17,15 +17,15 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            const string EndpointUrl = @"https://testcomosdbzeeshan.documents.azure.com:443/";
-            const string PrimaryKey = @"wRQwDv0cQRFk2DIxGmGP66AlFXz4HTJ0qtsGGMO8mda8SCBgZroJFSmi4WoACBrOzgmXwsGMToTnjMFX7EsgKw==";
+            const string EndpointUrl = @"";
+            const string PrimaryKey = @"";
             DocumentClient client;
             client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
             FeedOptions queryOptions = new FeedOptions { MaxItemCount = -1 };
             try
             {
                 IOrderedQueryable<JsonData> familyQuery = client.CreateDocumentQuery<JsonData>(
-                        UriFactory.CreateDocumentCollectionUri("testcosmosdbzeeshan", "testcosmosdbcollzeeshan"), queryOptions);
+                        UriFactory.CreateDocumentCollectionUri("", ""), queryOptions);
                 foreach (var x in familyQuery)
                 {
                     Console.WriteLine(" \tRead {0}", x.id + " " + x.name);
